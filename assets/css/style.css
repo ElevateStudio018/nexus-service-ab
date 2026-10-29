@@ -18,7 +18,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body {
   margin: 0;
   font-family: var(--font);
@@ -65,19 +65,8 @@ p { margin: 0 0 1em; }
 .text-link { color: var(--orange-deep); font-weight: 600; text-decoration: none; }
 .text-link:hover { text-decoration: underline; }
 
-/* ---------- Topbar ---------- */
-.topbar { background: #07080a; color: rgba(255,255,255,.75); font-size: 13px; }
-.topbar .wrap { display: flex; justify-content: space-between; align-items: center; height: 38px; gap: 20px; }
-.topbar-info { display: flex; gap: 22px; }
-.topbar-info span { display: inline-flex; align-items: center; gap: 7px; }
-.topbar a { color: #fff; font-weight: 600; text-decoration: none; }
-.topbar a:hover { color: var(--orange); }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: #3ccf6e; display: inline-block; }
-.dot.closed { background: #8a9099; }
-
 /* ---------- Header ---------- */
 .site-header { position: fixed; inset: 0 0 auto; z-index: 50; transition: transform .35s var(--ease); }
-.site-header.scrolled { transform: translateY(-38px); }
 .navbar { transition: background .35s var(--ease), box-shadow .35s var(--ease); position: relative; }
 .site-header.scrolled .navbar, .site-header.solid .navbar { background: rgba(12,13,16,.96); backdrop-filter: blur(10px); }
 .site-header.scrolled .navbar::after, .site-header.solid .navbar::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--orange); }
@@ -116,19 +105,19 @@ p { margin: 0 0 1em; }
 .mobile-nav { display: none; }
 
 /* ---------- Hero (startsida, video) ---------- */
-.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; color: #fff; overflow: hidden; background: var(--ink); }
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; text-align: center; color: #fff; overflow: hidden; background: var(--ink); }
 .hero-video, .page-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero::after {
   content: ""; position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(12,13,16,.7) 0%, rgba(12,13,16,.15) 35%, rgba(12,13,16,.55) 70%, rgba(12,13,16,.95) 100%),
-    linear-gradient(90deg, rgba(12,13,16,.75) 0%, rgba(12,13,16,.2) 65%);
+    linear-gradient(180deg, rgba(12,13,16,.7) 0%, rgba(12,13,16,.45) 40%, rgba(12,13,16,.6) 100%);
 }
-.hero-inner { position: relative; z-index: 1; padding: 200px 0 0; }
-.hero h1 { font-size: clamp(40px, 6.4vw, 88px); line-height: 1.02; letter-spacing: -.03em; max-width: 900px; margin-bottom: 24px; }
+.hero-inner { position: relative; z-index: 1; padding: 120px 0 60px; }
+.hero h1 { font-size: clamp(44px, 8vw, 112px); line-height: 1.02; letter-spacing: -.035em; max-width: 1000px; margin: 0 auto 40px; }
 .hero h1 span { color: var(--orange); }
 .hero .lead { font-size: clamp(16px, 1.5vw, 20px); max-width: 600px; color: rgba(255,255,255,.88); margin-bottom: 34px; }
 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero .hero-cta { justify-content: center; }
 .hero-services {
   position: relative; z-index: 1; margin-top: 70px; display: grid; grid-template-columns: repeat(5, 1fr);
   border-top: 1px solid var(--line);
@@ -391,10 +380,9 @@ a.card .more { display: inline-block; margin-top: 14px; color: var(--orange-deep
 }
 @media (max-width: 760px) {
   body { font-size: 15px; }
-  .topbar-info span.hide-sm { display: none; }
   .header-inner { height: 68px; }
-  html { scroll-padding-top: 110px; }
-  .hero-inner { padding-top: 150px; }
+  html { scroll-padding-top: 76px; }
+  .hero-inner { padding-top: 100px; }
   .hero-services { grid-template-columns: 1fr 1fr; margin-top: 44px; }
   .hero-services a { padding: 16px 12px 18px 0 !important; border-right: 0; border-bottom: 1px solid var(--line); }
   .hero-services a:last-child { display: none; }
@@ -415,6 +403,5 @@ a.card .more { display: inline-block; margin-top: 14px; color: var(--orange-deep
   .footer-bottom { flex-direction: column; }
   .fab-call { width: 54px; height: 54px; left: 16px; bottom: 16px; }
   .video-toggle { right: 14px; bottom: 14px; width: 38px; height: 38px; }
-  .hero .video-toggle { top: 122px; bottom: auto; }
   .page-hero-inner { padding: 150px 0 50px; }
 }
